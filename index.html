@@ -10,14 +10,15 @@
 
 <header>
     <h1>Arquitectura del proyecto: IPS Java/Swing</h1>
-    <p>Versión: 1.0 | Fecha: 22 de septiembre de 2025 | Autor: Marcos Losada García</p>
+    <p>Versión: 1.1 | Fecha: 22 de septiembre de 2025 | Autor: Marcos Losada García</p>
+    <p class="changelog"><strong>Cambios:</strong> Añadido Apéndice A con un caso de uso práctico.</p>
 </header>
 
 <main>
     <section>
         <h2>1. Introducción</h2>
         <h3>1.1. Propósito</h3>
-        <p>Este documento describe la arquitectura de software de la aplicación "Swing Demo". Su objetivo es proporcionar una visión general de la estructura del sistema, los principios de diseño aplicados y los patrones arquitectónicos utilizados. Servirá como guía para el desarrollo, mantenimiento y evolución de la aplicación.</p>
+        <p>Este documento describe la arquitectura de software de la aplicación. Su objetivo es proporcionar una visión general de la estructura del sistema, los principios de diseño aplicados y los patrones arquitectónicos utilizados. Servirá como guía para el desarrollo, mantenimiento y evolución de la aplicación.</p>
         <h3>1.2. Alcance</h3>
         <p>La arquitectura descrita aplica a una aplicación de escritorio monolítica desarrollada en Java con la librería gráfica Swing. El diseño se centra en la escalabilidad, mantenibilidad y un alto grado de desacoplamiento entre sus componentes.</p>
     </section>
@@ -108,14 +109,4 @@
         <ul>
             <li><strong>Separación de Responsabilidades (SoC):</strong> Cada capa y clase tiene una única responsabilidad bien definida.</li>
             <li><strong>Inversión de Dependencias (DIP):</strong> Las capas de alto nivel dependen de abstracciones (interfaces), no de implementaciones concretas.</li>
-            <li><strong>Encapsulación y Ocultación de Información:</strong> Los paquetes <code>internal</code> ocultan detalles de implementación, forzando la comunicación a través de fachadas públicas.</li>
-        </ul>
-    </section>
-</main>
-
-<footer>
-    <p>© 2025 Marcos Losada García</p>
-</footer>
-
-</body>
-</html>
+            <li><strong>Encapsulación y Ocultación de Información:</strong> Los paquetes <code>internal</code> ocultan detalles de implementación, forzando la comunicación a través de fach
