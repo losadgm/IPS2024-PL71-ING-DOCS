@@ -158,7 +158,7 @@
         <p><code>OrderFacade.createNewOrder()</code> es el método que orquesta la operación completa. Para ello, colabora con otras fachadas, pero nunca con sus detalles internos.</p>
         <ul>
             <li><strong>Paso 1: Validar Usuario.</strong> Llama a la fachada de usuarios: <code>Optional&lt;UserDTO&gt; user = userFacade.findUserById(userId);</code>. Si el usuario no existe, la operación falla.</li>
-            <li><strong>Paso 2: Verificar Stock.</strong> Llama a la fachada de productos: <code>boolean hasStock = productFacade</code><code>.checkStockAvailability(productSku, quantity);</code>. Si no hay stock, la operación falla.</li>
+            <li><strong>Paso 2: Verificar Stock.</strong> Llama a la fachada de productos: <code>boolean hasStock = productFacade</code><br/><code>.checkStockAvailability(productSku, quantity);</code>. Si no hay stock, la operación falla.</li>
             <li><strong>Paso 3: Ejecutar Lógica Interna.</strong> Si las validaciones son correctas, la <code>OrderFacade</code> llama a su propio servicio interno (<code>orderService</code>) para que realice el trabajo de bajo nivel: crear la entidad <code>Order</code>, actualizar el stock y guardar todo en la base de datos dentro de una única transacción.</li>
         </ul>
 
