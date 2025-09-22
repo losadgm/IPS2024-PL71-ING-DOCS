@@ -18,7 +18,7 @@
     <section>
         <h2>1. Introducción</h2>
         <h3>1.1. Propósito</h3>
-        <p>Este documento describe la arquitectura de software de la aplicación. Su objetivo es proporcionar una visión general de la estructura del sistema, los principios de diseño aplicados y los patrones arquitectónicos utilizados. Servirá como guía para el desarrollo, mantenimiento y evolución de la aplicación.</p>
+        <p>Este documento describe la arquitectura de software de la aplicación "Swing Demo". Su objetivo es proporcionar una visión general de la estructura del sistema, los principios de diseño aplicados y los patrones arquitectónicos utilizados. Servirá como guía para el desarrollo, mantenimiento y evolución de la aplicación.</p>
         <h3>1.2. Alcance</h3>
         <p>La arquitectura descrita aplica a una aplicación de escritorio monolítica desarrollada en Java con la librería gráfica Swing. El diseño se centra en la escalabilidad, mantenibilidad y un alto grado de desacoplamiento entre sus componentes.</p>
     </section>
@@ -109,4 +109,76 @@
         <ul>
             <li><strong>Separación de Responsabilidades (SoC):</strong> Cada capa y clase tiene una única responsabilidad bien definida.</li>
             <li><strong>Inversión de Dependencias (DIP):</strong> Las capas de alto nivel dependen de abstracciones (interfaces), no de implementaciones concretas.</li>
-            <li><strong>Encapsulación y Ocultación de Información:</strong> Los paquetes <code>internal</code> ocultan detalles de implementación, forzando la comunicación a través de fach
+            <li><strong>Encapsulación y Ocultación de Información:</strong> Los paquetes <code>internal</code> ocultan detalles de implementación, forzando la comunicación a través de fachadas públicas.</li>
+        </ul>
+    </section>
+
+    <!-- APÉNDICE AÑADIDO -->
+    <section id="apendice">
+        <h2>Apéndice A: Aplicación Práctica de la Arquitectura - Caso de Uso</h2>
+        
+        <h3>A.1. Escenario del Caso de Uso</h3>
+        <p>Se considera un escenario donde la aplicación tiene una interfaz de usuario (UI) simple, consistente en un único panel de control (Dashboard), pero maneja una lógica de negocio compleja que involucra múltiples entidades de dominio (User, Product, Order).</p>
+        <p><strong>Requisito del caso de uso:</strong> El usuario hace clic en un botón "Crear Nuevo Pedido" en el Dashboard. Esta acción requiere obtener información del usuario, verificar el stock del producto y finalmente, crear un nuevo pedido en la base de datos.</p>
+        
+        <h3>A.2. Estructura de Paquetes en este Escenario</h3>
+        <p>En este caso, la arquitectura se manifiesta de la siguiente manera: solo la funcionalidad del Dashboard tiene una capa de presentación mvc. Las demás funcionalidades (user, product, order) exponen su lógica a través de fachadas, pero no tienen vistas propias.</p>
+        <pre><code>com.losadagm.demo
+│
+├── dashboard/                 // Módulo con UI.
+│   ├── mvc/
+│   │   ├── DashboardModel.java
+│   │   ├── DashboardView.java
+│   │   └── DashboardController.java
+│   └── DashboardFacade.java
+│
+├── user/                      // Módulo "sin cabeza" (headless).
+│   ├── UserFacade.java
+│   └── internal/
+│
+├── product/                   // Módulo "sin cabeza".
+│   ├── ProductFacade.java
+│   └── internal/
+│
+└── order/                     // Módulo "sin cabeza".
+    ├── OrderFacade.java
+    └── internal/
+</code></pre>
+
+        <h3>A.3. Flujo de Control Detallado</h3>
+        <p>El flujo para "Crear Nuevo Pedido" demuestra cómo las distintas funcionalidades colaboran sin acoplarse directamente, orquestadas por el DashboardController y las fachadas.</p>
+        
+        <h4>Evento de UI (DashboardView):</h4>
+        <p>El usuario introduce los datos del pedido (ID de usuario, SKU del producto, cantidad) y hace clic en "Crear Pedido". La <code>DashboardView</code> captura el evento y llama a su controlador: <code>controller.handleCreateOrderRequest(userId, productSku, quantity);</code>.</p>
+        
+        <h4>Orquestación en el Controlador (DashboardController):</h4>
+        <p>El <code>DashboardController</code> recibe la petición. Su rol no es saber cómo se crea un pedido, sino delegar la tarea a los expertos. Invoca a la fachada de pedidos: <code>orderFacade.createNewOrder(userId, productSku, quantity);</code>.</p>
+        
+        <h4>Lógica de Negocio en la Fachada (OrderFacade):</h4>
+        <p><code>OrderFacade.createNewOrder()</code> es el método que orquesta la operación completa. Para ello, colabora con otras fachadas, pero nunca con sus detalles internos.</p>
+        <ul>
+            <li><strong>Paso 1: Validar Usuario.</strong> Llama a la fachada de usuarios: <code>Optional&lt;UserDTO&gt; user = userFacade.findUserById(userId);</code>. Si el usuario no existe, la operación falla.</li>
+            <li><strong>Paso 2: Verificar Stock.</strong> Llama a la fachada de productos: <code>boolean hasStock = productFacade.checkStockAvailability(productSku, quantity);</code>. Si no hay stock, la operación falla.</li>
+            <li><strong>Paso 3: Ejecutar Lógica Interna.</strong> Si las validaciones son correctas, la <code>OrderFacade</code> llama a su propio servicio interno (<code>orderService</code>) para que realice el trabajo de bajo nivel: crear la entidad <code>Order</code>, actualizar el stock y guardar todo en la base de datos dentro de una única transacción.</li>
+        </ul>
+
+        <h4>Actualización de la UI:</h4>
+        <p>La <code>OrderFacade</code> devuelve un resultado. El <code>DashboardController</code> lo recibe y le pide a la <code>DashboardFacade</code> que refresque los datos del panel. Esta fachada obtiene los datos actualizados, los pone en el <code>DashboardModel</code>, y el modelo notifica a la <code>DashboardView</code> (su Observer) para que se redibuje y muestre el estado más reciente.</p>
+
+        <h3>A.4. Conclusiones del Caso de Uso</h3>
+        <p>Este ejemplo demuestra los beneficios clave de la arquitectura:</p>
+        <ul>
+            <li><strong>Desacoplamiento:</strong> El módulo <code>order</code> no sabe nada sobre la existencia de un Dashboard. Su única puerta de entrada es <code>OrderFacade</code>.</li>
+            <li><strong>Cohesión:</strong> Toda la lógica para crear un pedido está contenida dentro del módulo <code>order</code>.</li>
+            <li><strong>Simplicidad en la UI:</strong> El <code>DashboardController</code> es simple y legible, ya que solo contiene llamadas de alto nivel a las fachadas.</li>
+            <li><strong>Escalabilidad:</strong> Añadir una nueva funcionalidad (ej. <code>Invoice</code>) simplemente requiere crear un nuevo módulo con su propia fachada.</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Marcos Losada García</p>
+</footer>
+
+</body>
+</html>
