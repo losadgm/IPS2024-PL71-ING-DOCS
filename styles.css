@@ -142,3 +142,27 @@ footer {
     color: #fff;
     font-size: 0.9rem;
 }
+
+.link-to-questions {
+    background-color: #fffbe6;
+    border-left: 5px solid #f0ad4e;
+    text-align: center;
+}
+
+.action-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    color: var(--header-text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
