@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas sobre Ambigüedades - Relaciones y Cardinalidades</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* Ajustes específicos para esta página */
+        .question-section {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .question-section h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .question-list {
+            list-style-type: '➤ ';
+            padding-left: 20px;
+        }
+
+        .question-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: var(--header-text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #004a80;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Discusión de Ambigüedades del Proyecto</h1>
+        <p class="subtitle">Preguntas clave para definir el Modelo de Datos y la Lógica de Negocio</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Contexto</h2>
+            <p>Antes de comenzar el desarrollo, es fundamental que todo el equipo comparta una misma visión sobre las reglas del sistema. Esta página recopila las dudas identificadas para discutirlas y definir los criterios de aceptación de cada historia.</p>
+        </section>
+
+        <section>
+            <h2>Preguntas sobre Entidades, Lógica y UI (Ronda 1)</h2>
+            <div class="question-section">
+                <h3>Gestión de Agenda y Citas</h3>
+                <ul class="question-list">
+                    <li>¿Un médico puede tener múltiples períodos de trabajo no contiguos (ej. enero-marzo y junio-agosto)?</li>
+                    <li>Si se modifica o elimina el período de trabajo de un doctor, ¿qué sucede con las citas ya programadas?</li>
+                    <li>¿El "horario" es una plantilla reutilizable o siempre se crea uno nuevo para cada período de trabajo?</li>
+                    <li>¿Cómo se gestionan los conflictos si se intenta crear un período que se solapa con otro existente?</li>
+                    <li>¿Se pueden crear citas en días festivos si caen dentro del período laboral del doctor?</li>
+                </ul>
+            </div>
+            <div class="question-section">
+                <h3>Detalles de la Cita y Notificaciones</h3>
+                 <ul class="question-list">
+                    <li>¿Qué duración por defecto tiene una cita? ¿Es configurable?</li>
+                    <li>¿La notificación de urgencia por e-mail es el único mecanismo? ¿Qué información exacta contiene?</li>
+                    <li>¿Qué ocurre si falla el envío del correo electrónico de urgencia? ¿Hay reintentos?</li>
+                    <li>Además de la disponibilidad del doctor, ¿se comprueba la disponibilidad de la consulta (ubicación)?</li>
+                 </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Nuevas Preguntas de Cardinalidad y Relaciones (Ronda 2)</h2>
+            <div class="question-section">
+                <h3>Modelo de Datos y Relaciones</h3>
+                 <ul class="question-list">
+                    <li><strong>(1:N) Médico <> Período Trabajo:</strong> ¿Un médico puede tener varios períodos de trabajo asignados simultáneamente?</li>
+                    <li><strong>(1:N) Cita <> Paciente/Doctor:</strong> ¿Puede existir una cita sin paciente asignado (ej. un "hueco reservado")? Cardinalidad (0..1) a Paciente.</li>
+                    <li><strong>(1:N) Paciente <> Contacto Cita:</strong> ¿La información de contacto es un atributo de la cita o una entidad separada? Si es una entidad, ¿un paciente puede tener una lista de contactos asociados?</li>
+                    <li><strong>(N:M) Cita <> Diagnóstico:</strong> ¿Un diagnóstico (ej. "gripe") puede asociarse a múltiples citas, o cada diagnóstico es un registro único ligado a una sola cita?</li>
+                    <li><strong>(N:M) Cita <> Prescripción:</strong> ¿Una prescripción pertenece exclusivamente a una cita o puede reutilizarse o referenciarse desde otras?</li>
+                    <li><strong>(1:N) Usuario <> Rol:</strong> ¿Los roles (doctor, manager) son una entidad propia o un simple atributo en la tabla de usuarios? ¿Un usuario puede tener múltiples roles?</li>
+                    <li><strong>Gestión de Ausencias:</strong> ¿Las vacaciones se gestionan creando un "período de no trabajo" o es una entidad aparte que bloquea la agenda?</li>
+                 </ul>
+            </div>
+        </section>
+
+        <a href="planificacion.html" class="back-link">&larr; Volver al Plan de Proyecto</a>
+    </main>
+
+    <footer>
+        <p>Documento de Ambigüedades - Equipo IPS - Fecha: 02/10/2025</p>
+    </footer>
+</body>
+</html>
+
