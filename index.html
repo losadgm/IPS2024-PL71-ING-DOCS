@@ -1,69 +1,113 @@
 <!DOCTYPE html>
-<html lang="es">
+<!-- El idioma por defecto es inglés (en) -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan de Proyecto y Asignación de Tareas</title>
+    <title>Project Plan & Task Assignment</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Plan de Proyecto</h1>
-        <p class="subtitle">Propuesta de asignación de tareas y estimaciones para el equipo</p>
+        <!-- Botón para cambiar idioma -->
+        <div class="lang-switcher">
+            <button id="lang-toggle-btn">Switch to Spanish</button>
+        </div>
+        <h1>
+            <span lang="en">Project Plan</span>
+            <span lang="es">Plan de Proyecto</span>
+        </h1>
+        <p class="subtitle">
+            <span lang="en">Proposal for task assignment and estimates for the team</span>
+            <span lang="es">Propuesta de asignación de tareas y estimaciones para el equipo</span>
+        </p>
     </header>
 
     <main>
         <section class="summary">
-            <h2>Resumen General del Plan</h2>
-            <p>Este documento detalla la distribución de las <strong>13 historias de usuario</strong> del proyecto. El objetivo es asignar paquetes de trabajo coherentes a cada miembro del equipo para minimizar dependencias y maximizar la productividad. Se busca vuestro feedback sobre la carga de trabajo, la claridad de las tareas y cualquier posible solapamiento que identifiquéis.</p>
+            <h2>
+                <span lang="en">General Plan Summary</span>
+                <span lang="es">Resumen General del Plan</span>
+            </h2>
+            <p>
+                <span lang="en">This document details the distribution of the <strong>13 user stories</strong> for the project. The goal is to assign coherent work packages to each team member to minimize dependencies and maximize productivity. Your feedback is sought on the workload, task clarity, and any potential overlaps you identify.</span>
+                <span lang="es">Este documento detalla la distribución de las <strong>13 historias de usuario</strong> del proyecto. El objetivo es asignar paquetes de trabajo coherentes a cada miembro del equipo para minimizar dependencias y maximizar la productividad. Se busca vuestro feedback sobre la carga de trabajo, la claridad de las tareas y cualquier posible solapamiento que identifiquéis.</span>
+            </p>
             <div class="metrics">
-                <div>Capacidad Total del Equipo: <strong>4 Integrantes - 60.0 Días</strong></div>
-                <div>Esfuerzo Medio Estimado: <strong>15.0 Días/Persona</strong></div>
+                <div>
+                    <span lang="en">Total Team Capacity: <strong>4 Members - 60.0 Days</strong></span>
+                    <span lang="es">Capacidad Total del Equipo: <strong>4 Integrantes - 60.0 Días</strong></span>
+                </div>
+                <div>
+                    <span lang="en">Average Estimated Effort: <strong>15.0 Days/Person</strong></span>
+                    <span lang="es">Esfuerzo Medio Estimado: <strong>15.0 Días/Persona</strong></span>
+                </div>
             </div>
             <div style="margin-top:1rem; font-size:1.1rem;">
-                <strong>Integrantes del equipo:</strong><br>
-                Integrante 1: <b>Marcos Losada García</b><br>
-                Integrante 2: <b>José David Cabo Stroup</b><br>
-                Integrante 3: <b>Ana Calleja Ramon</b><br>
-                Integrante 4: <b>David García Weiss</b>
+                <strong>
+                    <span lang="en">Team Members:</span>
+                    <span lang="es">Integrantes del equipo:</span>
+                </strong><br>
+                <span lang="en">Member 1:</span><span lang="es">Integrante 1:</span> <b>Marcos Losada García</b><br>
+                <span lang="en">Member 2:</span><span lang="es">Integrante 2:</span> <b>José David Cabo Stroup</b><br>
+                <span lang="en">Member 3:</span><span lang="es">Integrante 3:</span> <b>Ana Calleja Ramon</b><br>
+                <span lang="en">Member 4:</span><span lang="es">Integrante 4:</span> <b>David García Weiss</b>
             </div>
         </section>
 
         <section class="link-to-questions">
-            <h2>Discusión de Ambigüedades</h2>
-            <p>Tras validar esta planificación, es crucial que todos revisemos y resolvamos las dudas sobre la lógica, datos y presentación del sistema. Haced clic en el siguiente botón para acceder al documento de ambigüedades.</p>
-            <a href="ambiguities.html" class="action-button">Ir a la Página de Preguntas</a>
+            <h2>
+                <span lang="en">Discussion of Ambiguities</span>
+                <span lang="es">Discusión de Ambigüedades</span>
+            </h2>
+            <p>
+                <span lang="en">After validating this plan, it is crucial that we all review and resolve any doubts about the system's logic, data, and presentation. Click the button below to access the ambiguities document.</span>
+                <span lang="es">Tras validar esta planificación, es crucial que todos revisemos y resolvamos las dudas sobre la lógica, datos y presentación del sistema. Haced clic en el siguiente botón para acceder al documento de ambigüedades.</span>
+            </p>
+            <a href="ambiguities.html" class="action-button">
+                <span lang="en">Go to the Questions Page</span>
+                <span lang="es">Ir a la Página de Preguntas</span>
+            </a>
         </section>
 
         <section class="assignment">
-            <h2>Asignación de Tareas por Integrante</h2>
+            <h2>
+                <span lang="en">Task Assignment per Member</span>
+                <span lang="es">Asignación de Tareas por Integrante</span>
+            </h2>
 
             <div class="person-card">
-                <h3>1. Marcos Losada García — El Arquitecto de la Agenda</h3>
-                <p class="role-desc">Responsable de la lógica central de programación y validación de citas. Su trabajo es la base para los demás.</p>
+                <h3>
+                    <span lang="en">1. Marcos Losada García — The Schedule Architect</span>
+                    <span lang="es">1. Marcos Losada García — El Arquitecto de la Agenda</span>
+                </h3>
+                <p class="role-desc">
+                    <span lang="en">Responsible for the core scheduling and appointment validation logic. His work is the foundation for the others.</span>
+                    <span lang="es">Responsable de la lógica central de programación y validación de citas. Su trabajo es la base para los demás.</span>
+                </p>
                 <table>
                     <thead>
                         <tr>
-                            <th>User Story</th>
-                            <th>Tarea Principal</th>
-                            <th>Estimación (Días-Persona)</th>
+                            <th><span lang="en">User Story</span><span lang="es">User Story</span></th>
+                            <th><span lang="en">Main Task</span><span lang="es">Tarea Principal</span></th>
+                            <th><span lang="en">Estimate (Person-Days)</span><span lang="es">Estimación (Días-Persona)</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Story 1</td>
-                            <td>Asignar período de trabajo personalizado al personal médico.</td>
+                            <td><span lang="en">Assign custom work period to medical staff.</span><span lang="es">Asignar período de trabajo personalizado al personal médico.</span></td>
                             <td>7.0</td>
                         </tr>
                         <tr>
                             <td>Story 3</td>
-                            <td>Asignar franja horaria a una cita, validando la disponibilidad.</td>
+                            <td><span lang="en">Assign a time slot to an appointment, validating availability.</span><span lang="es">Asignar franja horaria a una cita, validando la disponibilidad.</span></td>
                             <td>8.0</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">Carga Total Estimada</td>
+                            <td colspan="2"><span lang="en">Total Estimated Load</span><span lang="es">Carga Total Estimada</span></td>
                             <td><strong>15.0</strong></td>
                         </tr>
                     </tfoot>
@@ -71,41 +115,47 @@
             </div>
 
             <div class="person-card">
-                <h3>2. José David Cabo Stroup — El Orquestador de Citas</h3>
-                <p class="role-desc">Encargado de construir la interfaz de creación de citas y añadir toda la información secundaria que la rodea.</p>
+                <h3>
+                    <span lang="en">2. José David Cabo Stroup — The Appointment Orchestrator</span>
+                    <span lang="es">2. José David Cabo Stroup — El Orquestador de Citas</span>
+                </h3>
+                <p class="role-desc">
+                    <span lang="en">In charge of building the appointment creation interface and adding all related secondary information.</span>
+                    <span lang="es">Encargado de construir la interfaz de creación de citas y añadir toda la información secundaria que la rodea.</span>
+                </p>
                 <table>
                     <thead>
                         <tr>
-                            <th>User Story</th>
-                            <th>Tarea Principal</th>
-                            <th>Estimación (Días-Persona)</th>
+                            <th><span lang="en">User Story</span><span lang="es">User Story</span></th>
+                            <th><span lang="en">Main Task</span><span lang="es">Tarea Principal</span></th>
+                            <th><span lang="en">Estimate (Person-Days)</span><span lang="es">Estimación (Días-Persona)</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Story 2</td>
-                            <td>Seleccionar paciente y doctor para la cita.</td>
+                            <td><span lang="en">Select patient and doctor for the appointment.</span><span lang="es">Seleccionar paciente y doctor para la cita.</span></td>
                             <td>3.0</td>
                         </tr>
                         <tr>
                             <td>Story 4</td>
-                            <td>Indicar urgencia y notificar por e-mail.</td>
+                            <td><span lang="en">Indicate urgency and notify by e-mail.</span><span lang="es">Indicar urgencia y notificar por e-mail.</span></td>
                             <td>5.0</td>
                         </tr>
                         <tr>
                             <td>Story 5</td>
-                            <td>Asignar la ubicación (consulta) a la cita.</td>
+                            <td><span lang="en">Assign the location (office) to the appointment.</span><span lang="es">Asignar la ubicación (consulta) a la cita.</span></td>
                             <td>4.0</td>
                         </tr>
                          <tr>
                             <td>Story 6</td>
-                            <td>Asignar la información de contacto para la cita.</td>
+                            <td><span lang="en">Assign contact information for the appointment.</span><span lang="es">Asignar la información de contacto para la cita.</span></td>
                             <td>3.0</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">Carga Total Estimada</td>
+                            <td colspan="2"><span lang="en">Total Estimated Load</span><span lang="es">Carga Total Estimada</span></td>
                             <td><strong>15.0</strong></td>
                         </tr>
                     </tfoot>
@@ -113,41 +163,47 @@
             </div>
             
             <div class="person-card">
-                <h3>3. Ana Calleja Ramon — La Gestora Clínica</h3>
-                <p class="role-desc">Responsable de la interfaz principal del doctor y las acciones que este realiza durante una cita.</p>
+                <h3>
+                    <span lang="en">3. Ana Calleja Ramon — The Clinical Manager</span>
+                    <span lang="es">3. Ana Calleja Ramon — La Gestora Clínica</span>
+                </h3>
+                <p class="role-desc">
+                    <span lang="en">Responsible for the doctor's main interface and the actions they perform during an appointment.</span>
+                    <span lang="es">Responsable de la interfaz principal del doctor y las acciones que este realiza durante una cita.</span>
+                </p>
                 <table>
                     <thead>
                         <tr>
-                            <th>User Story</th>
-                            <th>Tarea Principal</th>
-                            <th>Estimación (Días-Persona)</th>
+                            <th><span lang="en">User Story</span><span lang="es">User Story</span></th>
+                            <th><span lang="en">Main Task</span><span lang="es">Tarea Principal</span></th>
+                            <th><span lang="en">Estimate (Person-Days)</span><span lang="es">Estimación (Días-Persona)</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Story 7</td>
-                            <td>Visualizar la agenda de citas del día.</td>
+                            <td><span lang="en">Display the day's appointment schedule.</span><span lang="es">Visualizar la agenda de citas del día.</span></td>
                             <td>6.0</td>
                         </tr>
                         <tr>
                             <td>Story 8</td>
-                            <td>Indicar si el paciente asistió o no.</td>
+                            <td><span lang="en">Indicate whether the patient attended the appointment.</span><span lang="es">Indicar si el paciente asistió o no.</span></td>
                             <td>3.0</td>
                         </tr>
                         <tr>
                             <td>Story 9</td>
-                            <td>Registrar la hora de check-in y check-out de la cita.</td>
+                            <td><span lang="en">Record the check-in and check-out time of the appointment.</span><span lang="es">Registrar la hora de check-in y check-out de la cita.</span></td>
                             <td>4.0</td>
                         </tr>
                          <tr>
                             <td>Story 12</td>
-                            <td>Ver el número total de citas de un día (rol de Manager).</td>
+                            <td><span lang="en">View the total number of appointments on a specific day (Manager role).</span><span lang="es">Ver el número total de citas de un día (rol de Manager).</span></td>
                             <td>2.0</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">Carga Total Estimada</td>
+                            <td colspan="2"><span lang="en">Total Estimated Load</span><span lang="es">Carga Total Estimada</span></td>
                             <td><strong>15.0</strong></td>
                         </tr>
                     </tfoot>
@@ -155,60 +211,95 @@
             </div>
 
             <div class="person-card">
-                <h3>4. David García Weiss — El Especialista en Datos Médicos</h3>
-                <p class="role-desc">Encargado de manejar la parte más compleja del sistema: el historial médico del paciente y sus datos asociados.</p>
+                <h3>
+                    <span lang="en">4. David García Weiss — The Medical Data Specialist</span>
+                    <span lang="es">4. David García Weiss — El Especialista en Datos Médicos</span>
+                </h3>
+                <p class="role-desc">
+                    <span lang="en">In charge of handling the most complex part of the system: the patient's medical record and its associated data.</span>
+                    <span lang="es">Encargado de manejar la parte más compleja del sistema: el historial médico del paciente y sus datos asociados.</span>
+                </p>
                 <table>
                     <thead>
                         <tr>
-                            <th>User Story</th>
-                            <th>Tarea Principal</th>
-                            <th>Estimación (Días-Persona)</th>
+                            <th><span lang="en">User Story</span><span lang="es">User Story</span></th>
+                            <th><span lang="en">Main Task</span><span lang="es">Tarea Principal</span></th>
+                            <th><span lang="en">Estimate (Person-Days)</span><span lang="es">Estimación (Días-Persona)</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Story 10</td>
-                            <td>Indicar el diagnóstico de un paciente (búsqueda en ICD-10).</td>
+                            <td><span lang="en">Indicate a patient's diagnosis (ICD-10 search).</span><span lang="es">Indicar el diagnóstico de un paciente (búsqueda en ICD-10).</span></td>
                             <td>5.0</td>
                         </tr>
                         <tr>
                             <td>Story 11</td>
-                            <td>Obtener y visualizar el historial médico del paciente.</td>
+                            <td><span lang="en">Retrieve and display the patient's medical record.</span><span lang="es">Obtener y visualizar el historial médico del paciente.</span></td>
                             <td>3.0</td>
                         </tr>
                         <tr>
                             <td>Story 13</td>
-                            <td>Escribir una prescripción para el paciente.</td>
+                            <td><span lang="en">Write a prescription for the patient.</span><span lang="es">Escribir una prescripción para el paciente.</span></td>
                             <td>7.0</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">Carga Total Estimada</td>
+                            <td colspan="2"><span lang="en">Total Estimated Load</span><span lang="es">Carga Total Estimada</span></td>
                             <td><strong>15.0</strong></td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
-
         </section>
 
         <section class="feedback-section">
-            <h2>Solicitud de Feedback</h2>
-            <p>Por favor, revisad esta propuesta y preparad vuestros comentarios para nuestra próxima reunión. Centraos en los siguientes puntos:</p>
+            <h2>
+                <span lang="en">Request for Feedback</span>
+                <span lang="es">Solicitud de Feedback</span>
+            </h2>
+            <p>
+                <span lang="en">Please review this proposal and prepare your comments for our next meeting. Focus on the following points:</span>
+                <span lang="es">Por favor, revisad esta propuesta y preparad vuestros comentarios para nuestra próxima reunión. Centraos en los siguientes puntos:</span>
+            </p>
             <ul>
-                <li><strong>Equilibrio de carga:</strong> ¿Consideras que la carga de trabajo asignada es justa y alcanzable en los 15 días de plazo?</li>
-                <li><strong>Dependencias:</strong> ¿Ves alguna dependencia fuerte con el trabajo de otro compañero que pueda causar un bloqueo?</li>
-                <li><strong>Claridad de las tareas:</strong> ¿Entiendes el alcance de las historias que se te han asignado?</li>
-                <li><strong>Preferencias:</strong> ¿Hay algún paquete de tareas que te interese más o para el que te sientas más preparado?</li>
+                <li>
+                    <strong><span lang="en">Workload Balance:</span><span lang="es">Equilibrio de carga:</span></strong>
+                    <span lang="en"> Do you consider the assigned workload to be fair and achievable within the 15-day deadline?</span>
+                    <span lang="es"> ¿Consideras que la carga de trabajo asignada es justa y alcanzable en los 15 días de plazo?</span>
+                </li>
+                <li>
+                    <strong><span lang="en">Dependencies:</span><span lang="es">Dependencias:</span></strong>
+                    <span lang="en"> Do you see any strong dependencies on a colleague's work that could cause a bottleneck?</span>
+                    <span lang="es"> ¿Ves alguna dependencia fuerte con el trabajo de otro compañero que pueda causar un bloqueo?</span>
+                </li>
+                <li>
+                    <strong><span lang="en">Task Clarity:</span><span lang="es">Claridad de las tareas:</span></strong>
+                    <span lang="en"> Do you understand the scope of the stories assigned to you?</span>
+                    <span lang="es"> ¿Entiendes el alcance de las historias que se te han asignado?</span>
+                </li>
+                <li>
+                    <strong><span lang="en">Preferences:</span><span lang="es">Preferencias:</span></strong>
+                    <span lang="en"> Is there a set of tasks that interests you more or for which you feel better prepared?</span>
+                    <span lang="es"> ¿Hay algún paquete de tareas que te interese más o para el que te sientas más preparado?</span>
+                </li>
             </ul>
         </section>
-
     </main>
 
     <footer>
-        <p>Documento de Planificación - Equipo de Desarrollo IPS - Fecha: 02/10/2025</p>
-        <p>Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</p>
+        <p>
+            <span lang="en">Planning Document - IPS Development Team - Date: 10/02/2025</span>
+            <span lang="es">Documento de Planificación - Equipo de Desarrollo IPS - Fecha: 02/10/2025</span>
+        </p>
+        <p>
+            <span lang="en">Copyright &copy; 2025 Marcos Losada García. Published under the <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">MIT License</a>.</span>
+            <span lang="es">Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</span>
+        </p>
     </footer>
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="script.js"></script>
 </body>
 </html>
