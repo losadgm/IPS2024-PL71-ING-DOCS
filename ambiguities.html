@@ -1,67 +1,111 @@
 <!DOCTYPE html>
-<html lang="es">
+<!-- El idioma por defecto es inglés (en) -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discusión de Ambigüedades del Proyecto</title>
+    <title>
+        <span lang="en">Discussion of Project Ambiguities</span>
+        <span lang="es">Discusión de Ambigüedades del Proyecto</span>
+    </title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Discusión de Ambigüedades del Proyecto</h1>
-        <p class="subtitle">Preguntas clave para definir el Modelo de Datos y la Lógica de Negocio</p>
+        <!-- Botón para cambiar idioma -->
+        <div class="lang-switcher">
+            <button id="lang-toggle-btn">Switch to Spanish</button>
+        </div>
+        <h1>
+            <span lang="en">Discussion of Project Ambiguities</span>
+            <span lang="es">Discusión de Ambigüedades del Proyecto</span>
+        </h1>
+        <p class="subtitle">
+            <span lang="en">Key questions to define the Data Model and Business Logic</span>
+            <span lang="es">Preguntas clave para definir el Modelo de Datos y la Lógica de Negocio</span>
+        </p>
     </header>
 
     <main>
         <section>
-            <h2>Contexto</h2>
-            <p>Antes de comenzar el desarrollo, es fundamental que todo el equipo comparta una misma visión sobre las reglas del sistema. Esta página recopila las dudas identificadas para discutirlas y definir los criterios de aceptación de cada historia.</p>
+            <h2>
+                <span lang="en">Context</span>
+                <span lang="es">Contexto</span>
+            </h2>
+            <p>
+                <span lang="en">Before starting development, it is essential that the entire team shares a unified vision of the system's rules. This page gathers the identified questions to discuss them and define the acceptance criteria for each story.</span>
+                <span lang="es">Antes de comenzar el desarrollo, es fundamental que todo el equipo comparta una misma visión sobre las reglas del sistema. Esta página recopila las dudas identificadas para discutirlas y definir los criterios de aceptación de cada historia.</span>
+            </p>
         </section>
 
         <section>
-            <h2>Preguntas</h2>
+            <h2>
+                <span lang="en">Questions</span>
+                <span lang="es">Preguntas</span>
+            </h2>
 
             <div class="question-section">
-                <h3>Gestión de Agenda y Citas</h3>
+                <h3>
+                    <span lang="en">Schedule and Appointment Management</span>
+                    <span lang="es">Gestión de Agenda y Citas</span>
+                </h3>
                 <ul class="question-list">
-                    <li>¿Un médico puede tener múltiples períodos de trabajo no contiguos (ej. enero-marzo y junio-agosto)?</li>
-                    <li>Si se modifica o elimina el período de trabajo de un doctor, ¿qué sucede con las citas ya programadas?</li>
-                    <li>¿El "horario" es una plantilla reutilizable o siempre se crea uno nuevo para cada período de trabajo?</li>
-                    <li>¿Cómo se gestionan los conflictos si se intenta crear un período que se solapa con otro existente?</li>
-                    <li>¿Se pueden crear citas en días festivos si caen dentro del período laboral del doctor?</li>
+                    <li><span lang="en">Can a doctor have multiple non-contiguous work periods (e.g., Jan-Mar and then Jun-Aug)?</span><span lang="es">¿Un médico puede tener múltiples períodos de trabajo no contiguos (ej. enero-marzo y junio-agosto)?</span></li>
+                    <li><span lang="en">If a doctor's work period is modified or deleted, what happens to already scheduled appointments?</span><span lang="es">Si se modifica o elimina el período de trabajo de un doctor, ¿qué sucede con las citas ya programadas?</span></li>
+                    <li><span lang="en">Is the "timetable" a reusable template, or is a new one always created for each work period?</span><span lang="es">¿El "horario" es una plantilla reutilizable o siempre se crea uno nuevo para cada período de trabajo?</span></li>
+                    <li><span lang="en">How are conflicts handled if an attempt is made to create an overlapping period?</span><span lang="es">¿Cómo se gestionan los conflictos si se intenta crear un período que se solapa con otro existente?</span></li>
+                    <li><span lang="en">Can appointments be scheduled on holidays if they fall within the doctor's work period?</span><span lang="es">¿Se pueden crear citas en días festivos si caen dentro del período laboral del doctor?</span></li>
                 </ul>
             </div>
 
             <div class="question-section">
-                <h3>Detalles de la Cita y Notificaciones</h3>
+                <h3>
+                    <span lang="en">Appointment Details and Notifications</span>
+                    <span lang="es">Detalles de la Cita y Notificaciones</span>
+                </h3>
                  <ul class="question-list">
-                    <li>¿Qué duración por defecto tiene una cita? ¿Es configurable?</li>
-                    <li>¿La notificación de urgencia por e-mail es el único mecanismo? ¿Qué información exacta contiene?</li>
-                    <li>¿Qué ocurre si falla el envío del correo electrónico de urgencia? ¿Hay reintentos?</li>
-                    <li>Además de la disponibilidad del doctor, ¿se comprueba la disponibilidad de la consulta (ubicación)?</li>
+                    <li><span lang="en">What is the default duration of an appointment? Is it configurable?</span><span lang="es">¿Qué duración por defecto tiene una cita? ¿Es configurable?</span></li>
+                    <li><span lang="en">Is email the only notification mechanism for urgent appointments? What exact information does it contain?</span><span lang="es">¿La notificación de urgencia por e-mail es el único mecanismo? ¿Qué información exacta contiene?</span></li>
+                    <li><span lang="en">What happens if sending the urgent email fails? Are there retries?</span><span lang="es">¿Qué ocurre si falla el envío del correo electrónico de urgencia? ¿Hay reintentos?</span></li>
+                    <li><span lang="en">Besides the doctor's availability, is the office (location) availability also checked?</span><span lang="es">Además de la disponibilidad del doctor, ¿se comprueba la disponibilidad de la consulta (ubicación)?</span></li>
                  </ul>
             </div>
 
             <div class="question-section">
-                <h3>Modelo de Datos y Relaciones</h3>
+                <h3>
+                    <span lang="en">Data Model and Relationships</span>
+                    <span lang="es">Modelo de Datos y Relaciones</span>
+                </h3>
                  <ul class="question-list">
-                    <li><strong>(1:N) Médico <> Período Trabajo:</strong> ¿Un médico puede tener varios períodos de trabajo asignados simultáneamente?</li>
-                    <li><strong>(1:N) Cita <> Paciente/Doctor:</strong> ¿Puede existir una cita sin paciente asignado (ej. un "hueco reservado")? Cardinalidad (0..1) a Paciente.</li>
-                    <li><strong>(1:N) Paciente <> Contacto Cita:</strong> ¿La información de contacto es un atributo de la cita o una entidad separada? Si es una entidad, ¿un paciente puede tener una lista de contactos asociados?</li>
-                    <li><strong>(N:M) Cita <> Diagnóstico:</strong> ¿Un diagnóstico (ej. "gripe") puede asociarse a múltiples citas, o cada diagnóstico es un registro único ligado a una sola cita?</li>
-                    <li><strong>(N:M) Cita <> Prescripción:</strong> ¿Una prescripción pertenece exclusivamente a una cita o puede reutilizarse o referenciarse desde otras?</li>
-                    <li><strong>(1:N) Usuario <> Rol:</strong> ¿Los roles (doctor, manager) son una entidad propia o un simple atributo en la tabla de usuarios? ¿Un usuario puede tener múltiples roles?</li>
-                    <li><strong>Gestión de Ausencias:</strong> ¿Las vacaciones se gestionan creando un "período de no trabajo" o es una entidad aparte que bloquea la agenda?</li>
+                    <li><strong><span lang="en">(1:N) Doctor <> Work Period:</span><span lang="es">(1:N) Médico <> Período Trabajo:</span></strong><span lang="en"> Can a doctor have multiple simultaneous work periods?</span><span lang="es"> ¿Un médico puede tener varios períodos de trabajo asignados simultáneamente?</span></li>
+                    <li><strong><span lang="en">(1:N) Appointment <> Patient/Doctor:</span><span lang="es">(1:N) Cita <> Paciente/Doctor:</span></strong><span lang="en"> Can an appointment exist without an assigned patient (e.g., a "reserved slot")? Cardinality (0..1) to Patient.</span><span lang="es"> ¿Puede existir una cita sin paciente asignado (ej. un "hueco reservado")? Cardinalidad (0..1) a Paciente.</span></li>
+                    <li><strong><span lang="en">(1:N) Patient <> Appointment Contact:</span><span lang="es">(1:N) Paciente <> Contacto Cita:</span></strong><span lang="en"> Is the contact information an attribute of the appointment or a separate entity? If it's an entity, can a patient have a list of associated contacts?</span><span lang="es"> ¿La información de contacto es un atributo de la cita o una entidad separada? Si es una entidad, ¿un paciente puede tener una lista de contactos asociados?</span></li>
+                    <li><strong><span lang="en">(N:M) Appointment <> Diagnosis:</span><span lang="es">(N:M) Cita <> Diagnóstico:</span></strong><span lang="en"> Can a diagnosis (e.g., "flu") be associated with multiple appointments, or is each diagnosis a unique record linked to a single appointment?</span><span lang="es"> ¿Un diagnóstico (ej. "gripe") puede asociarse a múltiples citas, o cada diagnóstico es un registro único ligado a una sola cita?</span></li>
+                    <li><strong><span lang="en">(N:M) Appointment <> Prescription:</span><span lang="es">(N:M) Cita <> Prescripción:</span></strong><span lang="en"> Does a prescription belong exclusively to one appointment, or can it be reused or referenced from others?</span><span lang="es"> ¿Una prescripción pertenece exclusivamente a una cita o puede reutilizarse o referenciarse desde otras?</span></li>
+                    <li><strong><span lang="en">(1:N) User <> Role:</span><span lang="es">(1:N) Usuario <> Rol:</span></strong><span lang="en"> Are roles a separate entity or a simple attribute in the user table? Can a user have multiple roles?</span><span lang="es"> ¿Los roles (doctor, manager) son una entidad propia o un simple atributo en la tabla de usuarios? ¿Un usuario puede tener múltiples roles?</span></li>
+                    <li><strong><span lang="en">Leave Management:</span><span lang="es">Gestión de Ausencias:</span></strong><span lang="en"> Is leave (e.g., vacation) managed by creating a "non-work period" or is it a separate entity that blocks the schedule?</span><span lang="es"> ¿Las vacaciones se gestionan creando un "período de no trabajo" o es una entidad aparte que bloquea la agenda?</span></li>
                  </ul>
             </div>
         </section>
 
-        <a href="index.html" class="back-link">&larr; Volver al Plan de Proyecto</a>
+        <a href="index.html" class="back-link">
+            <span lang="en">&larr; Back to Project Plan</span>
+            <span lang="es">&larr; Volver al Plan de Proyecto</span>
+        </a>
     </main>
 
     <footer>
-        <p>Documento de Ambigüedades - Equipo de Desarrollo IPS - Fecha: 02/10/2025</p>
-        <p>Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</p>
+        <p>
+            <span lang="en">Ambiguities Document - IPS Development Team - Date: 10/02/2025</span>
+            <span lang="es">Documento de Ambigüedades - Equipo de Desarrollo IPS - Fecha: 02/10/2025</span>
+        </p>
+        <p>
+            <span lang="en">Copyright &copy; 2025 Marcos Losada García. Published under the <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">MIT License</a>.</span>
+            <span lang="es">Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</span>
+        </p>
     </footer>
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="script.js"></script>
 </body>
 </html>
