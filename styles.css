@@ -148,4 +148,57 @@ tfoot td {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-.action-button
+.action-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+
+/* --- Estilos para ambiguedades.html --- */
+
+.question-section {
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+}
+
+.question-section h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.question-list {
+    list-style-type: '➤ ';
+    padding-left: 20px;
+}
+
+.question-list li {
+    margin-bottom: 0.8rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--header-text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #004a80;
+}
+
+/* --- Estilos comunes --- */
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
