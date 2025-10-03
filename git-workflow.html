@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Workflow - Project Docs</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+
+	        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html"><span lang="en">Project Plan</span><span lang="es">Plan de Proyecto</span></a></li>
+                <li><a href="ambiguities.html"><span lang="en">Ambiguities</span><span lang="es">Ambigüedades</span></a></li>
+                <li><a href="git-workflow.html" class="active"><span lang="en">Git Workflow</span><span lang="es">Flujo Git</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="title-container">
+		<h1>
+		<span lang="en">Recommended Git Workflow</span>
+		<span lang="es">Git Workflow Recomendado</span>
+		</h1>
+		<p class="subtitle">
+		<span lang="en">Feature Branch + Pull Rebase + Squash Merge</span>
+		<span lang="es">Feature Branch + Pull Rebase + Squash Merge</span>
+		</p>
+        </div>
+
+        <div class="lang-switcher">
+            <button id="lang-toggle-btn">Switch to Spanish</button>
+        </div>
+    </div>
+</header>
+
+
+<main>
+    <section>
+        <h2>
+            <span lang="en">Phase 1: Feature Preparation</span>
+            <span lang="es">Fase 1: Preparación de la Feature</span>
+        </h2>
+        <p><span lang="en">1. Make sure you are up to date on dev:</span><span lang="es">1. Asegurarte de estar actualizado en dev:</span></p>
+        <pre><code>git checkout dev
+git pull origin dev</code></pre>
+        <p><span lang="en">2. Create a new feature branch:</span><span lang="es">2. Crear nueva feature branch:</span></p>
+        <pre><code>git checkout -b feature/user-authentication</code></pre>
+        <p><span lang="en">3. Work on the feature (multiple commits):</span><span lang="es">3. Trabajar en la feature (múltiples commits):</span></p>
+        <pre><code># ... make changes ...
+git add .
+git commit -m "feat(auth): add login form validation"
+# ... more changes ...
+git commit -m "fix(auth): handle edge case in password validation"
+# ... more changes ...
+git commit -m "feat(auth): implement session management"</code></pre>
+    </section>
+
+    <section>
+        <h2>
+            <span lang="en">Phase 2: Sync with Dev (Before Merge)</span>
+            <span lang="es">Fase 2: Sincronización con Dev (Antes del Merge)</span>
+        </h2>
+        <p><span lang="en">4. Update local dev:</span><span lang="es">4. Actualizar dev localmente:</span></p>
+        <pre><code>git checkout dev
+git pull origin dev</code></pre>
+        <p><span lang="en">5. Go to the feature branch and rebase on top of the updated dev:</span><span lang="es">5. Ir a feature y hacer rebase sobre dev actualizado:</span></p>
+        <pre><code>git checkout feature/user-authentication
+git rebase dev</code></pre>
+        <p><span lang="en">6. Resolve conflicts if they exist during the rebase:</span><span lang="es">6. Resolver conflictos si existen durante el rebase:</span></p>
+        <pre><code># (edit files, resolve conflicts)
+git add resolved_file.java
+git rebase --continue
+# Repeat until the rebase is complete</code></pre>
+    </section>
+
+    <section>
+        <h2>
+            <span lang="en">Phase 3: Integration Options</span>
+            <span lang="es">Fase 3: Opciones de Integración</span>
+        </h2>
+        <h3>
+            <span lang="en">Option A: Squash Merge (Recommended for a Clean History)</span>
+            <span lang="es">Opción A: Squash Merge (Recomendado para Historia Limpia)</span>
+        </h3>
+        <p><span lang="en">7. Switch back to dev:</span><span lang="es">7. Volver a dev:</span></p>
+        <pre><code>git checkout dev</code></pre>
+        <p><span lang="en">8. Squash merge (combines all feature commits into one):</span><span lang="es">8. Squash merge (combina todos los commits de feature en uno):</span></p>
+        <pre><code>git merge --squash feature/user-authentication</code></pre>
+        <p><span lang="en">9. Create a descriptive commit message:</span><span lang="es">9. Crear commit descriptivo:</span></p>
+        <pre><code>git commit -m "feat(auth): implement complete user authentication system
+
+- Add responsive login form with client-side validation
+- Implement secure password hashing with bcrypt
+- Add JWT-based session management
+- Include login/logout functionality
+- Add authentication middleware
+
+Closes #123"</code></pre>
+        <p><span lang="en">10. Push to remote:</span><span lang="es">10. Push a remoto:</span></p>
+        <pre><code>git push origin dev</code></pre>
+        <p><span lang="en">11. Delete the feature branch (no longer needed):</span><span lang="es">11. Eliminar rama feature (ya no necesaria):</span></p>
+        <pre><code>git branch -d feature/user-authentication
+git push origin --delete feature/user-authentication</code></pre>
+        
+        <h3>
+            <span lang="en">Option B: Regular Merge (Preserves Detailed History)</span>
+            <span lang="es">Opción B: Merge Regular (Preserva Historia Detallada)</span>
+        </h3>
+        <p><span lang="en">As an alternative to squash merge, a regular merge will preserve all the individual commits from the feature branch.</span><span lang="es">Como alternativa al squash merge, un merge regular preservará todos los commits individuales de la rama de feature.</span></p>
+        <pre><code># Alternative to squash merge
+git checkout dev
+git merge feature/user-authentication  # May result in a merge commit
+git push origin dev</code></pre>
+    </section>
+    
+    <section>
+        <h2>
+            <span lang="en">Advantages of This Workflow</span>
+            <span lang="es">Ventajas de Este Workflow</span>
+        </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th><span lang="en">Aspect</span><span lang="es">Aspecto</span></th>
+                    <th><span lang="en">Benefit</span><span lang="es">Beneficio</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>git pull origin dev</code></td>
+                    <td><span lang="en">Keeps your local branch up-to-date with the team's changes.</span><span lang="es">Mantiene tu rama local actualizada con los cambios del equipo.</span></td>
+                </tr>
+                <tr>
+                    <td><code>git rebase dev</code></td>
+                    <td><span lang="en">Applies your changes on top of the latest changes from dev, avoiding unnecessary merge commits.</span><span lang="es">Aplica tus cambios encima de los últimos cambios de dev, evitando merge commits innecesarios.</span></td>
+                </tr>
+                <tr>
+                    <td><code>git merge --squash</code></td>
+                    <td><span lang="en">Turns all "noisy" WIP commits into a single clean, atomic commit.</span><span lang="es">Convierte todos los commits "ruidosos" en un commit limpio y atómico.</span></td>
+                </tr>
+                <tr>
+                    <td><span lang="en">Linear History</span><span lang="es">Historia lineal</span></td>
+                    <td><span lang="en">Facilitates <code>git bisect</code>, code review, and debugging.</span><span lang="es">Facilita <code>git bisect</code>, code review y debugging.</span></td>
+                </tr>
+                <tr>
+                    <td><span lang="en">Atomic Commits</span><span lang="es">Commits atómicos</span></td>
+                    <td><span lang="en">Each feature is a complete logical unit that can be easily reverted.</span><span lang="es">Cada feature es una unidad lógica completa que se puede revertir fácilmente.</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>
+            <span lang="en">Important Rules</span>
+            <span lang="es">Reglas Importantes</span>
+        </h2>
+        <div class="do-dont-container">
+            <div class="do-list">
+                <h3>DO:</h3>
+                <ul>
+                    <li><span lang="en">Always rebase before merging for a clean history.</span><span lang="es">Siempre rebase antes del merge para historia limpia.</span></li>
+                    <li><span lang="en">Use squash merge for features with multiple "work-in-progress" commits.</span><span lang="es">Usar squash merge para features con múltiples commits "trabajo en progreso".</span></li>
+                    <li><span lang="en">Pull with rebase on feature branches: <code>git pull --rebase origin dev</code>.</span><span lang="es">Pull con rebase en feature branches: <code>git pull --rebase origin dev</code>.</span></li>
+                    <li><span lang="en">Resolve conflicts during the rebase, not after.</span><span lang="es">Resolver conflictos durante el rebase, no después.</span></li>
+                </ul>
+            </div>
+            <div class="dont-list">
+                <h3>DON'T:</h3>
+                <ul>
+                    <li><span lang="en">Never rebase shared branches (like <code>dev</code> or <code>master</code>).</span><span lang="es">Nunca hagas rebase de ramas compartidas (como <code>dev</code> o <code>master</code>).</span></li>
+                    <li><span lang="en">Do not rebase after creating a Pull Request if others are reviewing it.</span><span lang="es">No hagas rebase después de crear Pull Request si otros están revisando.</span></li>
+                    <li><span lang="en">Do not force push to shared branches.</span><span lang="es">No hagas push force a ramas compartidas.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <span lang="en">Documentation - IPS Development Team - Date 10/03/2025</span>
+        <span lang="es">Documentación - Equipo de Desarrollo IPS - Fecha 03/10/2025</span>
+    </p>
+    <p>
+        <span lang="en">Copyright &copy; 2025 Marcos Losada García. Published under the <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">MIT License</a>.</span>
+        <span lang="es">Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</span>
+    </p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
