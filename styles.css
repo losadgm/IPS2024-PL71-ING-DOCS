@@ -30,7 +30,6 @@ header {
 }
 
 /* --- ESTILOS PARA EL CAMBIO DE IDIOMA --- */
-
 .lang-switcher {
     position: absolute;
     top: 15px;
@@ -57,19 +56,16 @@ header {
 html[lang="en"] [lang="es"] {
     display: none;
 }
-
 html[lang="es"] [lang="en"] {
     display: none;
 }
 html[lang="es"] [lang="es"] {
     display: inline;
 }
-
 html[lang="en"] li > [lang="es"],
 html[lang="es"] li > [lang="en"] {
     display: none;
 }
-
 html[lang="en"] li > [lang="en"],
 html[lang="es"] li > [lang="es"] {
     display: list-item;
@@ -80,16 +76,19 @@ header h1 {
     margin: 0;
     font-size: 2.5rem;
 }
+
 header .subtitle {
     margin: 0.5rem 0 0;
     font-size: 1.2rem;
     opacity: 0.9;
 }
+
 main {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
+
 section {
     background-color: var(--card-background);
     border-radius: 8px;
@@ -97,12 +96,14 @@ section {
     margin-bottom: 2rem;
     box-shadow: 0 4px 8px var(--shadow-color);
 }
+
 h2 {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
     margin-top: 0;
 }
+
 .summary .metrics {
     display: flex;
     justify-content: space-around;
@@ -121,34 +122,41 @@ h2 {
     margin-top: 2rem;
     border-radius: 4px;
 }
+
 .team-list-container h4 {
     margin-top: 0;
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
     color: var(--primary-color);
 }
+
 .team-list {
     list-style: none;
     padding-left: 0;
     margin: 0;
 }
+
 .team-list li {
     padding: 0.3rem 0;
     font-size: 1rem;
     border-bottom: 1px solid #e9ecef;
 }
+
 .team-list li:last-child {
     border-bottom: none;
 }
+
 /* Estilos para alinear nombre y rol en la misma línea */
 .team-member-name, .team-member-role {
     display: inline-block;
     vertical-align: baseline;
 }
+
 .team-member-name {
     font-weight: 700;
     color: #343a40;
 }
+
 .team-member-role {
     font-style: italic;
     color: #555;
@@ -161,43 +169,53 @@ h2 {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border-color);
 }
+
 .person-card:last-child {
     border-bottom: none;
     margin-bottom: 0;
 }
+
 .person-card h3 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 0.5rem;
 }
+
 .role-desc {
     font-style: italic;
     color: #555;
     margin-bottom: 1.5rem;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
 }
+
 th, td {
     padding: 0.8rem 1rem;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
+
 thead {
     background-color: #f2f2f2;
 }
+
 th {
     font-weight: 700;
 }
+
 tbody tr:hover {
     background-color: #f9f9f9;
 }
+
 tfoot {
     font-weight: 700;
     color: var(--primary-color);
 }
+
 tfoot td {
     text-align: right;
     font-size: 1.1rem;
@@ -209,6 +227,7 @@ tfoot td {
     border-left: 5px solid var(--warning-color);
     text-align: center;
 }
+
 .action-button {
     display: inline-block;
     margin-top: 1rem;
@@ -221,26 +240,32 @@ tfoot td {
     font-size: 1.1rem;
     transition: background-color 0.3s, transform 0.2s;
 }
+
 .action-button:hover {
     background-color: #45a049;
     transform: translateY(-2px);
 }
+
 .question-section {
     border-left: 4px solid var(--secondary-color);
     padding-left: 1.5rem;
     margin-top: 2rem;
 }
+
 .question-section h3 {
     color: var(--primary-color);
     font-size: 1.4rem;
 }
+
 .question-list {
     list-style-type: '➤ ';
     padding-left: 20px;
 }
+
 .question-list li {
     margin-bottom: 0.8rem;
 }
+
 .back-link {
     display: inline-block;
     margin-top: 2rem;
@@ -252,6 +277,7 @@ tfoot td {
     font-weight: 700;
     transition: background-color 0.3s;
 }
+
 .back-link:hover {
     background-color: #004a80;
 }
@@ -264,4 +290,97 @@ footer {
     color: #fff;
     font-size: 0.9rem;
     margin-top: 3rem;
+}
+
+/* === ESTILOS NAVEGACIÓN === */
+.main-nav {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    color: var(--header-text-color);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.main-nav ul li a.active {
+    background-color: var(--header-text-color);
+    color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* === ESTILOS BLOQUES DE CÓDIGO === */
+pre {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    border: 1px solid #444;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    margin: 1.5rem 0;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+}
+
+/* === ESTILOS PARA LISTAS DO/DON'T === */
+.do-dont-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.do-list h3 { color: #28a745; }
+.dont-list h3 { color: #dc3545; }
+
+.do-list ul, .dont-list ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.do-list li {
+    background-color: rgba(40, 167, 69, 0.05);
+    border-left: 4px solid #28a745;
+    padding: 0.5rem 1rem;
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+.dont-list li {
+    background-color: rgba(220, 53, 69, 0.05);
+    border-left: 4px solid #dc3545;
+    padding: 0.5rem 1rem;
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+/* Ajustes responsivos para las columnas do/don't */
+@media (max-width: 768px) {
+    .do-dont-container {
+        grid-template-columns: 1fr;
+    }
 }
