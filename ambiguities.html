@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<!-- El idioma por defecto es inglés (en) -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <span lang="en">Discussion of Project Ambiguities</span>
-        <span lang="es">Discusión de Ambigüedades del Proyecto</span>
-    </title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>System Ambiguities - Project Docs</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <!-- Botón para cambiar idioma -->
+
+<header>
+    <div class="header-content">
+
+	        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html"><span lang="en">Project Plan</span><span lang="es">Plan de Proyecto</span></a></li>
+                <li><a href="ambiguities.html" class="active"><span lang="en">Ambiguities</span><span lang="es">Ambigüedades</span></a></li>
+                <li><a href="git-workflow.html"><span lang="en">Git Workflow</span><span lang="es">Flujo Git</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="title-container">
+		<h1>
+        <span lang="en">System Ambiguities</span>
+        <span lang="es">Ambigüedades del Sistema</span>
+		</h1>
+    <p class="subtitle">
+        <span lang="en">List of questions and points to clarify before starting development.</span>
+        <span lang="es">Listado de dudas y puntos a aclarar antes de iniciar el desarrollo.</span>
+    </p>
+        </div>
+
         <div class="lang-switcher">
             <button id="lang-toggle-btn">Switch to Spanish</button>
         </div>
-        <h1>
-            <span lang="en">Discussion of Project Ambiguities</span>
-            <span lang="es">Discusión de Ambigüedades del Proyecto</span>
-        </h1>
-        <p class="subtitle">
-            <span lang="en">Key questions to define the Data Model and Business Logic</span>
-            <span lang="es">Preguntas clave para definir el Modelo de Datos y la Lógica de Negocio</span>
-        </p>
-    </header>
+    </div>
+</header>
 
-    <main>
+   <main>
         <section>
             <h2>
                 <span lang="en">Context</span>
@@ -94,18 +104,18 @@
         </a>
     </main>
 
-    <footer>
-        <p>
-            <span lang="en">Ambiguities Document - IPS Development Team - Date: 10/02/2025</span>
-            <span lang="es">Documento de Ambigüedades - Equipo de Desarrollo IPS - Fecha: 02/10/2025</span>
-        </p>
-        <p>
-            <span lang="en">Copyright &copy; 2025 Marcos Losada García. Published under the <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">MIT License</a>.</span>
-            <span lang="es">Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</span>
-        </p>
-    </footer>
+<footer>
+    <p>
+        <span lang="en">Documentation - IPS Development Team - Date 10/03/2025</span>
+        <span lang="es">Documentación - Equipo de Desarrollo IPS - Fecha 03/10/2025</span>
+    </p>
+    <p>
+        <span lang="en">Copyright &copy; 2025 Marcos Losada García. Published under the <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">MIT License</a>.</span>
+        <span lang="es">Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</span>
+    </p>
+</footer>
 
-    <!-- Enlace al archivo JavaScript externo -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
