@@ -1,0 +1,117 @@
+@startuml
+
+' Configuración
+skinparam linetype ortho
+skinparam nodesep 140
+skinparam ranksep 140
+scale 1.8
+
+skinparam classFontSize 16
+skinparam classAttributeFontSize 13
+skinparam padding 15
+skinparam classBackgroundColor LightYellow
+skinparam classBorderThickness 2
+skinparam ArrowFontSize 12
+
+' MÓDULO 1: Gestión de Personal
+package "Personal Médico" {
+  class Doctor {
+    + id: Long
+    + name: String
+    + specialty: String
+  }
+  
+  class Nurse {
+    + id: Long
+    + name: String
+  }
+  
+  class WorkPeriod {
+    + id: Long
+    + startDate: Date
+    + endDate: Date
+  }
+  
+  class Timetable {
+    + id: Long
+    + mondayHours: String
+    + tuesdayHours: String
+  }
+  
+  WorkPeriod "0..*" --> "1" Doctor : pertenece a
+  WorkPeriod "0..*" --> "1" Nurse : pertenece a
+  WorkPeriod "1" *-- "1" Timetable : contiene
+}
+
+' MÓDULO 2: Pacientes
+package "Pacientes" {
+  class Patient {
+    + id: Long
+    + name: String
+    + birthDate: Date
+  }
+  
+  class MedicalRecord {
+    + id: Long
+    + creationDate: Date
+  }
+  
+  class Disease {
+    + id: Long
+    + icd10Code: String
+    + description: String
+  }
+  
+  class Prescription {
+    + id: Long
+    + medication: String
+    + dosage: String
+  }
+  
+  Patient "1" *-- "1" MedicalRecord : tiene
+  MedicalRecord "1" *-- "0..*" Disease : registra
+  MedicalRecord "1" *-- "0..*" Prescription : registra
+}
+
+' MÓDULO 3: Citas
+package "Gestión de Citas" {
+  class Appointment {
+    + id: Long
+    + dateTime: DateTime
+    + isUrgent: Boolean
+  }
+  
+  class Office {
+    + id: Long
+    + name: String
+  }
+  
+  class ContactInformation {
+    + id: Long
+    + phone: String
+    + email: String
+  }
+  
+  class MedicalReceptionist {
+    + id: Long
+    + name: String
+  }
+  
+  class Manager {
+    + id: Long
+    + name: String
+  }
+  
+  Appointment "1" *-- "1" ContactInformation : tiene
+  Appointment "1..*" --> "1" Office : se realiza en
+  MedicalReceptionist ..> Appointment : crea
+  Manager ..> Appointment : consulta
+}
+
+' Relaciones entre paquetes
+Appointment "1..*" --> "1" Patient : para
+Appointment "1..*" -- "1..*" Doctor : es atendida por
+Doctor ..> MedicalRecord : actualiza
+Doctor ..> Prescription : escribe
+
+@enduml
