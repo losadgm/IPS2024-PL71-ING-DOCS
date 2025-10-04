@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Diagrams - Project Docs</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><span lang="en">Project Plan</span><span lang="es">Plan de Proyecto</span></a></li>
+                    <li><a href="ambiguities.html"><span lang="en">Ambiguities</span><span lang="es">Ambigüedades</span></a></li>
+                    <li><a href="git-workflow.html"><span lang="en">Git Workflow</span><span lang="es">Flujo Git</span></a></li>
+                    <li><a href="diagrams.html" class="active"><span lang="en">Diagrams</span><span lang="es">Diagramas</span></a></li>
+                </ul>
+            </nav>
+            <div class="title-container">
+                <h1>
+                    <span lang="en">Project Diagrams</span>
+                    <span lang="es">Diagramas del Proyecto</span>
+                </h1>
+                <p class="subtitle">
+                    <span lang="en">Visual representations of the system.</span>
+                    <span lang="es">Representaciones visuales del sistema.</span>
+                </p>
+            </div>
+            <div class="lang-switcher">
+                <button id="lang-toggle-btn">Switch to Spanish</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="diagram-container">
+            <h2>
+                <span lang="en">UML Entity-Relationship Diagram</span>
+                <span lang="es">Diagrama de Entidad-Relación UML</span>
+            </h2>
+            <p>
+                <span lang="en">The following diagram shows the main entities of the system and their relationships.</span>
+                <span lang="es">El siguiente diagrama muestra las entidades principales del sistema y sus relaciones.</span>
+            </p>
+            
+            <!-- Contenedor para el diagrama SVG -->
+            <div class="svg-container" style="margin: 2rem 0; padding: 1rem; border: 1px solid #e0e0e0; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px;">
+                <img src="EntityUML.svg" type="image/svg+xml" alt="Entity-Relationship Diagram of the project" style="max-width: 100%; height: auto;">
+            </div>
+
+            <p>
+                <span lang="en">This diagram helps to understand the data structure, the tables that will be created in the database, and the connections between them.</span>
+                <span lang="es">Este diagrama es útil para entender la estructura de datos, las tablas que se crearán en la base de datos y las conexiones entre ellas.</span>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <span lang="en">Documentation - IPS Development Team - Date: 10/03/2025</span>
+            <span lang="es">Documentación - Equipo de Desarrollo IPS - Fecha: 03/10/2025</span>
+        </p>
+        <p>
+            <span lang="en">Copyright &copy; 2025 Marcos Losada García. Published under the <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">MIT License</a>.</span>
+            <span lang="es">Copyright &copy; 2025 Marcos Losada García. Publicado bajo la <a href="http://opensource.org/licenses/MIT" target="_blank" style="color: white;">Licencia MIT</a>.</span>
+        </p>
+    </footer>
+
+    <!-- El script para el cambio de idioma -->
+    <script src="script.js"></script>
+
+</body>
+</html>
